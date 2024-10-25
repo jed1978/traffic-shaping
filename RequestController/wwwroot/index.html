@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SignalR Client</title>
+    <script src="js/signalr/dist/browser/signalr.js"></script>
+</head>
+<body>
+<h1>SignalR Client</h1>
+<button onclick="sendRequest()">Send Request</button>
+<div id="display_area"></div>
+
+<script>
+    const connection = new signalR.HubConnectionBuilder()
+        .withUrl("/hub")
+        .build();
+    var display_area = document.getElementById("display_area");
+    connection.start().then(function() {
+        console.log("SignalR connection established.");
+    }).catch(function(err) {
+        return console.error(err.toString());
+    });
+
+    // 接收服務器發送的消息
+    connection.on("ReceiveResponse", function(requestId, data) {
+        console.log("Received response for request ID:", requestId, "Data:", data);
+        // 根據 requestId 匹配請求與回應
+        display_area.innerHTML+="request ID:"+requestId+", Data:"+data+"<br>";
+    });
+
+    // 發送請求
+    function sendRequest() {
+        const requestId = generateRequestId();
+        const requestData = { message: "Hello, World!" };
+
+        connection.invoke("SendRequest", requestId, requestData)
+            .catch(function(err) {
+                return console.error(err.toString());
+            });
+    }
+
+    function generateRequestId() {
+        return '_' + Math.random().toString(36).substr(2, 9);
+    }
+</script>
+</body>
+</html>
