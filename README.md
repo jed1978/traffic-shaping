@@ -24,10 +24,8 @@ This repository contains a sample implementation of a traffic shaping mechanism 
 - **Traffic Shaping**: Implements a buffering mechanism using Redis queues to handle high traffic volumes smoothly.
 - **Scalability**: Supports horizontal scaling by running multiple instances of the WorkerService, enabling higher throughput.
 - **Asynchronous Processing**: Decouples request reception from processing, allowing the system to handle requests asynchronously without blocking client connections.
-- **Latest Technologies**: Built using the latest versions of .NET and SignalR, ensuring compatibility and leveraging new features.
 
 	Real-time Communication: Utilizes SignalR for real-time, bi-directional communication between the server and clients.
 	Traffic Shaping: Implements a buffering mechanism using Redis queues to handle high traffic volumes smoothly.
 	Scalability: Supports horizontal scaling by running multiple instances of the WorkerService, enabling higher throughput.
 	Asynchronous Processing: Decouples request reception from processing, allowing the system to handle requests asynchronously without blocking client connections.
-	Latest Technologies: Built using the latest versions of .NET and SignalR, ensuring compatibility and leveraging new features.
