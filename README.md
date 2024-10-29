@@ -5,7 +5,7 @@
 This repository contains a sample implementation of a traffic shaping mechanism using SignalR and Redis in an ASP.NET Core application. The solution demonstrates how to handle high levels of concurrent requests by buffering incoming traffic, thus smoothing out sudden spikes and preventing server overload.
 
 ## 1. RequestController (ASP.NET Core Web Application)
-- **Description**: Acts as the front-end server that accepts client connections using SignalR (WebSocket). It collects incoming requests from clients, assigns a unique Request ID, and enqueues them into a Redis queue for processing.
+- **Description**: Acts as the front-end server that accepts client connections using SignalR (WebSocket). It collects incoming requests from clients, assigns an unique Request ID, and enqueues them into a Redis queue for processing.
 - **Responsibilities**:
   - Manage client connections via SignalR Hub.
   - Enqueue incoming requests into Redis.
