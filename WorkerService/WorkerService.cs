@@ -1,6 +1,4 @@
 using System.Text.Json;
-using System.Threading;
-using System.Threading.Tasks;
 using Common.Models;
 using Microsoft.Extensions.Hosting;
 using StackExchange.Redis;
@@ -53,8 +51,10 @@ namespace WorkerService
         private Task<object> ProcessRequestAsync(object requestData)
         {
             // 執行業務邏輯
+            Console.WriteLine($"Processing request at {DateTime.Now}");
+            
             // 模擬處理時間
-            Thread.Sleep(2000);
+            Thread.Sleep(100);
 
             // 返回處理結果
             return Task.FromResult<object>(new { Success = true, Data = "Processed data" });
